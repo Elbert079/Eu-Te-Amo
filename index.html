@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Chuva de EU TE AMO</title>
@@ -23,39 +23,39 @@
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Tamaño de pantalla
+    // Tamanho da tela
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const phrase = "EU TE AMO ";
-    const fontSize = 20;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops = Array(columns).fill(1);
+    const frase = "EU TE AMO ";
+    const tamanhoFonte = 20;
+    const colunas = Math.floor(canvas.width / tamanhoFonte);
+    const gotas = Array(colunas).fill(1);
 
-    // Dibujar el texto
-    function draw() {
-      // Fondo semitransparente para el efecto de estela
+    // Desenhar o texto
+    function desenhar() {
+      // Fundo semi-transparente para o efeito de trilha
       ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#ff69b4"; // Rosa fuerte (HotPink)
-      ctx.font = fontSize + "px Arial";
+      ctx.fillStyle = "#ff69b4"; // Rosa forte (HotPink)
+      ctx.font = tamanhoFonte + "px Arial";
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = phrase;
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      for (let i = 0; i < gotas.length; i++) {
+        const texto = frase;
+        ctx.fillText(texto, i * tamanhoFonte, gotas[i] * tamanhoFonte);
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+        if (gotas[i] * tamanhoFonte > canvas.height && Math.random() > 0.975) {
+          gotas[i] = 0;
         }
 
-        drops[i]++;
+        gotas[i]++;
       }
     }
 
-    setInterval(draw, 100);
+    setInterval(desenhar, 100);
 
-    // Redimensionar al cambiar el tamaño de la ventana
+    // Redimensionar ao mudar o tamanho da janela
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
